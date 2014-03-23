@@ -1,4 +1,4 @@
-Dojo to try out websocket with cramp gem.
+Dojo to try out websocket in ruby using cramp.
 
 How to work this?
 -----------------
