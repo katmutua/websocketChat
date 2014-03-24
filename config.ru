@@ -10,7 +10,7 @@ Cramp::Websocket.backend = :thin
 module Chat
   class HomeAction < Cramp::Action
     self.transport = :chunked
-    template_path = File.expand_path( 'views/index.html')
+    template_path = File.expand_path('views/index.html')
     @@template = File.read(template_path)
 
     def start
@@ -23,8 +23,16 @@ module Chat
     self.transport = :websocket
     @@user_set = %w['pete', 'pan', 'piper']
 
-    on_start :user_connected
+    on_start :connected_users
     on_finish :user_left
     on_data :message_received
+
+    def connected_users
+      @@user_set
+    end
+
+    def user_left
+      @@user_set.shift
+    end
   end
 end
