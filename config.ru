@@ -36,3 +36,10 @@ module Chat
     end
   end
 end
+
+routes = HttpRouter.new do
+  add('/').to(Chat::HomeAction)
+  add('/socket').to(Chat::SocketAction)
+end
+
+run routes
