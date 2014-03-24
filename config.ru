@@ -9,7 +9,7 @@ Cramp::Websocket.backend = :thin
 
 module Chat
   class HomeAction < Cramp::Action
-    self.transport = :chunked
+
     template_path = File.expand_path('views/index.html')
     @@template = File.read(template_path)
 
