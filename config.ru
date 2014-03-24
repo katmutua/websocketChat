@@ -34,6 +34,13 @@ module Chat
     def user_left
       @@user_set.shift
     end
+
+    def message_received(data)
+    message = {}
+    message['time'] = Time.now
+    message['some_message'] = data
+    @@user_set.each {|u| u.render message.to_json }
+    end
   end
 end
 
